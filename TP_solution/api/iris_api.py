@@ -1,24 +1,6 @@
 from fastapi import FastAPI, HTTPException
-from contextlib import asynccontextmanager
-from src.schemas import IrisInput, IrisPrediction
-from src.ml_service import IrisModelService
-
-# Global variable to hold the model service instance
-ml_service = None
-
-
-@asynccontextmanager
-async def lifespan(app: FastAPI):
-    """
-    Lifespan context manager to handle startup and shutdown events.
-    We load the model when the app starts.
-    """
-    global ml_service
-    # Startup: Load the model
-    ml_service = IrisModelService()
-    yield
-    # Shutdown: Clean up resources if needed
-    ml_service = None
+from api.schemas import IrisInput, IrisPrediction
+from api.iris_model import IrisModel
 
 
 # Create the FastAPI application
@@ -26,9 +8,14 @@ app = FastAPI(
     title="Iris Classification API",
     description="A professional API to classify iris flowers using a Random Forest model.",
     version="1.0.0",
-    lifespan=lifespan,
 )
 
+## Initialize the Iris model service
+try:
+    ml_service = IrisModel()
+except Exception as e:
+    ml_service = None
+    print(f"Error initializing model service: {e}")
 
 @app.get("/")
 def read_root():

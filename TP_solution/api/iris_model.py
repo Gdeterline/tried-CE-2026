@@ -3,7 +3,7 @@ from sklearn.datasets import load_iris
 from sklearn.ensemble import RandomForestClassifier
 
 
-class IrisModelService:
+class IrisModel:
     def __init__(self):
         self.model = None
         self.class_names = []
@@ -19,7 +19,7 @@ class IrisModelService:
         self.class_names = iris.target_names
 
         # Train a simple Random Forest
-        self.model = RandomForestClassifier(n_estimators=10, random_state=42)
+        self.model = RandomForestClassifier(n_estimators=10, random_state=42, min_samples_leaf=1, max_depth=5, max_features='sqrt')
         self.model.fit(iris.data, iris.target)
         print("Model trained and ready.")
 

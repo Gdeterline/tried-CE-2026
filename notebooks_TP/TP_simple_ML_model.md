@@ -4,10 +4,7 @@ Ce guide accompagne le notebook `TP_simple_ML_model.ipynb`. Votre objectif est d
 
 ## Objectifs Pédagogiques
 - Charger et explorer un dataset classique (Iris).
-- Comprendre l'importance de la séparation train/test.
-- Mettre en place un pré-traitement des données (Standardisation).
 - Créer et entraîner un pipeline scikit-learn (Preprocessing + Modèle).
-- Évaluer le modèle avec différentes métriques.
 - **Refactoring** : Sortir du notebook pour créer un script Python modulaire.
 
 ---
@@ -16,17 +13,13 @@ Ce guide accompagne le notebook `TP_simple_ML_model.ipynb`. Votre objectif est d
 
 **Tâche** : Complétez la fonction `create_train_test_split` dans le notebook. Utilisez `train_test_split` de scikit-learn.
 
-**Question 1** : Pourquoi est-il crucial de séparer les données en un jeu d'entraînement (train) et un jeu de test (test) ? Que se passerait-il si nous évaluions le modèle sur les données d'entraînement ?
-
-**Question 2** : À quoi sert le paramètre `stratify=y` dans `train_test_split` ? Pourquoi est-ce important pour la classification ?
-
 ---
 
 ## Étape 2 : Pré-traitement des Données (Preprocessing)
 
 **Tâche** : Complétez la fonction `create_preprocessing_pipeline` pour retourner un `StandardScaler`.
 
-**Question 3** : Le `StandardScaler` transforme les données pour qu'elles aient une moyenne de 0 et un écart-type de 1. Pourquoi est-ce important pour certains algorithmes de Machine Learning d'avoir des données à la même échelle ?
+**Question** : Le `StandardScaler` transforme les données pour qu'elles aient une moyenne de 0 et un écart-type de 1. Pourquoi est-ce important pour certains algorithmes de Machine Learning d'avoir des données à la même échelle ?
 
 ---
 
@@ -34,15 +27,13 @@ Ce guide accompagne le notebook `TP_simple_ML_model.ipynb`. Votre objectif est d
 
 **Tâche** : Complétez `create_model_pipeline` pour assembler le scaler et le classifieur `RandomForestClassifier`.
 
-**Question 4** : Quel est l'avantage d'utiliser un objet `Pipeline` de scikit-learn plutôt que d'appliquer manuellement le scaler puis le modèle ? (Indice : pensez à ce qui se passe lors de la prédiction sur de nouvelles données).
-
+**Question** : Quel est l'avantage d'utiliser un objet `Pipeline` de scikit-learn plutôt que d'appliquer manuellement le scaler puis le modèle ? (Indice : pensez à ce qui se passe lors de la prédiction sur de nouvelles données).
+**Question** :  Comment est-ce que cette pipeline est utile à avoir si on va développer une API avec ce modèle ?
 ---
 
 ## Étape 4 : Évaluation du Modèle
 
 **Tâche** : Complétez `evaluate_model` pour calculer la matrice de confusion, l'accuracy, la précision, le rappel (recall) et le F1-score.
-
-**Question 5** : Si notre dataset était très déséquilibré (par exemple 95% d'une classe et 5% des autres), l'`accuracy` serait-elle une bonne métrique ? Pourquoi le F1-score pourrait-il être plus pertinent ?
 
 ---
 
@@ -73,11 +64,11 @@ if __name__ == "__main__":
 5.  **Vérification** :
     *   Ouvrez un terminal dans VS Code.
     *   Placez-vous à la racine du projet.
-    * Activer votre vitual environmenet en faisant `source .venv/bin/activate`
+    *  Activer votre vitual environmenet en faisant `source .venv/bin/activate` ou autre en fonction de votre gestionnaire d'environnement (e.g: conda activate <myenv>).
     *   Exécutez votre script avec la commande :
         ```bash
         python src/model_pipeline.py
         ```
         ou  avec `uv run src/model_pipeline.py`
 
-Si tout fonctionne, vous verrez vos logs s'afficher dans le terminal (et les graphiques s'ouvriront ou seront sauvegardés si configuré). Félicitations, vous avez transformé votre expérimentation en code logiciel robuste !
+Si tout fonctionne, vous verrez vos logs s'afficher dans le terminal (et les graphiques s'ouvriront ou seront sauvegardés si configuré). Félicitations, vous avez transformé votre expérimentation en code logiciel "robuste" !

@@ -1,89 +1,70 @@
 # tried-CE-2026
 
-Repository containing the practical work code for the CE module intervention in the TRIED master's program (January 2026).
+Code des travaux pratiques pour le module CE du master TRIED (Janvier 2026).
 
-## 📋 Table of Contents
+## Contenu
 
-- [Overview](#overview)
-- [Prerequisites](#prerequisites)
-- [Installation](#installation)
-- [Running the Project](#running-the-project)
-- [Contributing](#contributing)
-- [License](#license)
+Le dossier `notebooks_TP/` contient les TPs à réaliser dans l'ordre :
 
-## Overview
+1.   **TP_simple_ML_model.ipynb** : Entraînement et sérialisation d'un modèle simple.
+2.   **TP_introduction_FastAPI.ipynb** : Découverte des bases de FastAPI.
+3.   **TP_FastAPI_Iris_Model.ipynb** : Création d'une API pour servir le modèle de classification Iris.
+4.  **TP_Docker_FastAPI.md** : Création d'un docker pour encapsuler la FastAPI.
 
-This repository contains practical exercises and solutions for the **Citizen Engineering (CE)** module, part of the TRIED (Transforming Research into Engineering and Data) master's program.
+## Prérequis
 
-**Tech Stack:**
-- Python 3.13+
-- FastAPI (API framework)
-- MLflow (ML tracking)
-- Scikit-learn (ML library)
-- Pandas (data processing)
-
-## Prerequisites
-
-- Python 3.13 or higher
-- Git
-- One of the following package managers:
-  - `uv` + `make` (recommended)
-  - `conda`
-  - `pip`
+*   Python 3.13 ou supérieur
+*   Git
+*   Au choix : `uv` (recommandé), `conda` ou `pip`
 
 ## Installation
 
-### Option 1: Using uv + make (Recommended) ⭐
+### Option 1 : uv + make (Recommandé)
 
-The fastest and simplest setup method:
+C'est la méthode la plus rapide.
 
 ```bash
 make setup
 ```
 
-### Option 2: Using uv + bash scripts
+### Option 2 : uv + scripts
 
-#### macOS / Linux
+**macOS / Linux**
 ```bash
 chmod +x setup_scripts/bootstrap.sh
 ./setup_scripts/bootstrap.sh
 ```
 
-#### Windows (PowerShell)
+**Windows (PowerShell)**
 ```bash
 pwsh setup_scripts/bootstrap.ps1
 ```
 
-Or with execution policy bypass:
+### Option 3 : Conda
+
 ```bash
-pwsh -ExecutionPolicy Bypass setup_scripts/bootstrap.ps1
-```
-
-### Option 3: Using conda
-
-1. Install conda if not already installed by following the [conda-forge documentation](https://conda-forge.org/download/)
-
-2. Create a new conda environment and install requirements:
-```bash
-conda create --name ml_in_prod --file requirements.txt
+conda create --name ml_in_prod python=3.13
 conda activate ml_in_prod
+pip install -r requirements.txt
 ```
 
-### Option 4: Using pip (Manual setup)
+### Option 4 : Pip (Manuel)
 
 ```bash
 git clone https://github.com/carole-ibrahim/tried-CE-2026.git
 cd tried-CE-2026
-pip install virtualenv
-virtualenv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+python -m venv venv
+source venv/bin/activate  # Sur Windows: venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-## Install Docker:
-Make sure you have docker installed on your machine, for Mac users, download the docker desktop app (emulates docker like a linux machine)
-[install docker desktop ](https://docs.docker.com/desktop/) (easier for all platforms) otherwise for linux users you can install [docker engine](https://docs.docker.com/engine/install)
+## Docker
 
-## License
+Docker est requis pour certaines parties.
 
-This project is licensed under the terms of the MIT License.
+*   **Mac / Windows** : Installez [Docker Desktop](https://docs.docker.com/desktop/).
+*   **Linux** : Installez [Docker Engine](https://docs.docker.com/engine/install).
+
+## Licence
+
+Ce projet est sous licence MIT.
